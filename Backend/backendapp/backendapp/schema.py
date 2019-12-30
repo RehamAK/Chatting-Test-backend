@@ -3,11 +3,11 @@ import Chat.schema
 from Chat.subscriptions import SubscriptionChatting
 
 
-class Query(graphene.ObjectType, Chat.schema.Query):
+class Query(Chat.schema.Query,graphene.ObjectType):
     pass
 
-class Mutation(graphene.ObjectType, Chat.schema.Mutation):
-
+class Mutation(Chat.schema.Mutation,graphene.ObjectType):
+    pass
 
 class Subscription(SubscriptionChatting):
     pass

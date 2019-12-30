@@ -5,11 +5,11 @@ from graphene_django import DjangoObjectType
 from Chat.models import ChatRoom, ChatMessage
 
 
-class ChatRoomType(DjangoObjectType)
+class ChatRoomType(DjangoObjectType):
     class Meta:
         model = ChatRoom
 
-class ChatMessageType(DjangoObjectType)
+class ChatMessageType(DjangoObjectType):
     class Meta:
         model = ChatMessage
 
@@ -24,7 +24,7 @@ class Query(graphene.ObjectType):
 class CreateMessage(graphene.Mutation):
 
     CreateMessage = graphene.Field(ChatMessageType)
-    createRoom = graphene.Field(ChatRoom)
+    createRoom = graphene.Field(ChatRoomType)
 
 
     class Arguments:

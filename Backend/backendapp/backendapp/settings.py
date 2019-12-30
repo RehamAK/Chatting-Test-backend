@@ -40,7 +40,9 @@ INSTALLED_APPS = [
 
 
     'Chat.apps.ChatConfig',
-    'graphene_subscriptions'
+    'graphene_subscriptions',
+    'graphene_django',
+
 ]
 
 CHANNEL_LAYERS = {
@@ -49,6 +51,12 @@ CHANNEL_LAYERS = {
     }
 }
 
+GRAPHENE = {
+    'SCHEMA': 'backendapp.schema.schema',
+    'MIDDLEWARE': [
+        'graphql_jwt.middleware.JSONWebTokenMiddleware',
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -89,8 +97,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ChattingTestDatebase',
-        'USER':'****',
-        'PASSWORD':'****',
+        'USER':'***',
+        'PASSWORD':'***',
         'HOST':'localhost'
     }
 }

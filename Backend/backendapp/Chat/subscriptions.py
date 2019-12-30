@@ -1,22 +1,18 @@
 import graphene
 from graphene_django.types import DjangoObjectType
 from graphene_subscriptions.events import CREATED
-
 from Chat.models import ChatRoom, ChatMessage
 
+# from .schema import ChatRoomType , ChatMessageType
 
-class ChatRoomType(DjangoObjectType)
-    class Meta:
-        model = ChatRoom
 
-class ChatMessageType(DjangoObjectType)
+class ChatMessageTypeSUB(DjangoObjectType):
     class Meta:
         model = ChatMessage
 
 
-
 class SubscriptionChatting(graphene.ObjectType):
-    ChatMessage = graphene.Field(ChatMessageType)
+    ChatMessage = graphene.Field(ChatMessageTypeSUB)
 
     def resolve_ChatMessage(root, info):
         return root.filter(
